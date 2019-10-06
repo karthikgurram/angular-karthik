@@ -1,0 +1,36 @@
+.ml-1 {
+    margin-left: (spacer * .1) !important;
+  }
+  .placeholder  {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: italic
+    
+  }
+ .card-body
+ {
+   
+ }
+  .image{
+    background-image: url(../images/INventory.webp);    
+    min-height: 100%;
+    min-width: 1024px;
+    
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    
+    /* Set up positioning */
+    position: fixed;
+    top: 15;
+    left: 0;
+  }
+
+  .spinner-grow {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 50%;
+    right: 50%; /* or: left: 50%; */
+    margin-top: -5px; /* have of the elements height */
+    margin-right: -5px; /* have of the elements widht */
+  }

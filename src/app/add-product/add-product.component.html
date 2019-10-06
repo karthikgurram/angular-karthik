@@ -1,0 +1,120 @@
+<div class="mx-auto">
+    <div class="container">
+        <div class="form-group">
+            <div class="card border-primary mb-3 ">
+                <div class="card-header bg-danger text-white"><b>Add Products</b></div>
+                <div class="card-body">
+                    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+                        <div class="form-group row" style="margin-top: 25px">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2" for="lblproName">Product Name: </label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="lblproName" name="lblproName"
+                                    [(ngModel)]="lblproName" required #proName="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && proName.invalid  }">
+                                <div *ngIf="f.submitted || proName.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="proName.errors?.required">Product Name is required</div>
+                                </div>
+                            </div>
+                                <!-- <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" name="firstName" [(ngModel)]="varfirstName"
+                                        #firstName="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid  || (firstName.dirty || firstName.touched) }" required />
+                                    <div *ngIf="f.submitted && firstName.invalid  || (firstName.dirty || firstName.touched)" 
+                                    class="alert-danger invalid-feedback">
+                                        <div *ngIf="firstName.errors?.required">First Name is required</div>
+                                    </div>
+                                </div> -->
+
+                                <label class="col-md-2" for="lblproDesc">Product Description: </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="lblproDesc" name="lblproDesc" [(ngModel)]="lblproDesc" required
+                                    #prodDesc="ngModel" [ngClass]="{ 'is-invalid': f.submitted && prodDesc.invalid  }">
+                                <div *ngIf="f.submitted || prodDesc.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="prodDesc.errors?.required">Product Description is required                                 </div>
+
+                                </div>
+                            </div>
+                            </div>
+                            <!-- row 2 -->
+                            <div class="form-group row">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2" for="lblman">Manufacturer: </label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="lblman" name="lblman" [(ngModel)]="lblman" required
+                                    #manref="ngModel" [ngClass]="{ 'is-invalid': f.submitted && manref.invalid  }">
+                                <div *ngIf="f.submitted || manref.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="manref.errors?.required">
+                                        Manufacturer is required.
+                                    </div>
+
+                                </div>
+                            </div>
+                            <label class="col-md-2" for="lblpriceRef">Price(£): </label>
+                            <div class="col-md-4">
+                                <input type="number" class="form-control" number id="lblpriceRef" name="lblpriceRef"
+                                    [(ngModel)]="lblpriceRef" required minlength="1" #priceRef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && priceRef.invalid  }">
+                                <div *ngIf="f.submitted || priceRef.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="priceRef.errors?.required">
+                                        Price is required & must be a number.
+                                    </div>
+                                    <div *ngIf="priceRef.errors?.minlength">
+                                        Price must be at least 1 character long.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <!-- row 3 -->
+
+                            <div class="form-group row">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2" for="lblquantity">Quantity: </label>
+                            <div class="col-md-3">
+                                <input type="number" class="form-control" number id="lblquantity" name="lblquantity"
+                                    [(ngModel)]="lblquantity" required minlength="1" #quantity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && quantity.invalid  }">
+                                <div *ngIf="f.submitted || quantity.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="quantity.errors?.required">
+                                        Quantity is required & must be a number.
+                                    </div>
+                                    <div *ngIf="quantity.errors?.minlength">
+                                        Quantity must be at least 1 character long.
+                                    </div>
+                                    <div *ngIf="quantity.errors?.number">
+                                        Quantity must be number.
+                                    </div>
+                                </div>
+                            </div>
+
+                          
+                        </div>
+                            <div>
+                            </div>
+                            <div class="col-md-3 ml-md-auto">
+                            <button *ngIf="loadAddProductbutton " type="submit"
+                                class="btn btn-info">Add Product</button>
+                            <button *ngIf="loadSpinnerButton" class="btn btn-info" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Adding Product...
+                            </button>
+                            <button routerLink="" class="btn btn-danger"> <i class="fas fa-backspace"></i>Back</button>
+                        </div>
+
+                        <br>
+                            <!-- <div class="form-group">
+                                <button class="btn btn-primary">Submit now </button>
+                            </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- style="background-color: rgb(199, 61, 61)" -->
+    <!-- style="background-color: rgb(226, 46, 46)" -->
