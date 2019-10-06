@@ -1,0 +1,110 @@
+<!-- <div *ngIf="(isLoaded | async)">  -->
+        <!-- <div [ngStyle]="{background: 'url(./images/' + img + ')'}"></div> -->
+        <!-- <div [ngstypel]
+            background: url(./app/images/Apple.webp)></div> -->
+            
+ <div class="image">       
+<div class="mx-auto">
+    <div class="container col-md-3 ">
+        <div *ngIf="loadLoginForm" >
+            <div class="card mx-auto ">
+                <div class="card-header bg-danger text-white"><b> <i class="fas fa-lock"></i> Login page</b></div>
+                <div class="card-body col mx-auto">
+                    <form name="form" #loginformRef="ngForm" (ngSubmit)="loginformRef.form.valid && loginUser()">
+                        <!-- row 2 -->
+                        <div class="form-group row form" style="margin-top: 10px">
+                            <!-- <div class="col-md-1"></div> -->
+                            <!-- <label class="col-md-4" for="empname"><i class="fas fa-envelope"></i> Email Id: </label> -->
+                            <div class="mx-auto">
+                                <input class="mx-auto form-control" placeholder=" example@abc.com" type="text" id="emailid" name="emailid" [(ngModel)]="emailid" required
+                                     #nameRef="ngModel" [ngClass]="{ 'is-invalid': loginformRef.submitted && nameRef.invalid  }">
+                                <div *ngIf="loginformRef.submitted && nameRef.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="nameRef.errors.required">
+                                        Email id is required.
+                                    </div>
+                                    <!-- <div *ngIf="nameRef.errors.minlength">
+                                        Email id must be at least 3 characters long.
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row form" style="margin-top: 25px">
+                            <!-- <label class="col-md-4" for="lblpassword"><i class="fas fa-key"></i> Password: </label> -->
+                            <div class="mx-auto">
+                                <input placeholder=" password" class="form-control" type="password" id="lblpassword" name="lblpassword" [(ngModel)]="lblpassword"
+                                    required  #Password="ngModel" [ngClass]="{ 'is-invalid': loginformRef.submitted && Password.invalid  }">
+                                <div *ngIf="loginformRef.submitted && Password.invalid "
+                                    class="alert-danger invalid-feedback">
+                                    <div *ngIf="Password.errors.required">
+                                        Password is required.
+                                    </div>
+                                    <!-- <div *ngIf="Password.errors.minlength">
+                                        Password must be at least 3 characters long.
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button type="submit" class="form-control col-md-5 btn btn-info" routerLink="AddProduct"><i class="fas fa-plus-circle"></i>
+                            Add New Product</button> -->
+                        <!-- row 3 -->
+
+                        <div class="form-group row form" >
+                            <div class="col-md-1"></div>
+                                <button  type="submit" class="form-control col-md-4 btn btn-info"><i class="fas fa-sign-in-alt"></i> Login </button>
+
+                            
+                                <!-- <div class="col-md-1"></div> -->
+                                <button  routerLink="" class="form-control col-md-4 btn btn-danger mx-auto"><i class="fas fa-window-close"></i>Cancel</button>
+
+                        </div>
+                        
+                        
+                        <i>New user? </i><a routerLink="register"> SignUp !</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="loadSpinner" class="d-flex justify-content-center">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="spinner-grow text-success" style="width: 5rem; height: 5rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- test
+
+<div class="table-responsive-sm">
+     <app-view-product [NameFromView]="SendDataToChildComponent()" ></app-view-product> 
+
+
+    <table id="myTable" class="table table-dark  table-bordered table-hover table-centered">
+        <tr class="bg-danger">
+            <th class="text-center">
+               Email ID
+            </th>
+            
+
+        </tr>
+        <tr *ngFor="let item of usersList">
+            <td class="text-center">
+                {{item.EmailID}}
+            
+        </tr>
+
+    </table>
+</div> -->
+
+    <!-- (ngSubmit)="onSubmit(formRef.value)" -->
+    <!-- </div> -->
+
+    <!-- style=" background-color: rgb(226, 46, 46)" -->
+    <!-- mx-auto -->
+</div>
+</div>

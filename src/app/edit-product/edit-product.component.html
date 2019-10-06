@@ -1,0 +1,111 @@
+<div class="mx-auto">
+        <div class="container">
+            <div class="form-group">
+                <div class="card border-primary mb-3">
+                    <div class="card-header bg-danger text-white" ><b>Edit Product</b></div>
+                    <div class="card-body" >
+                    <form #editProductForm="ngForm">
+                        <div class="form-group row" style="margin-top: 25px">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2" for="lblproName">Product Name: </label>
+                            <div class="col-md-3">
+                                <input type="text" id="lblproName" name="lblproName" [(ngModel)]="lblproName"  required value=" {{ProductslistfromJson2.productName}}"
+                                    minlength="3" #proName="ngModel">
+                                   
+                                <div *ngIf="proName.invalid && (proName.dirty || proName.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="proName.errors.required">
+                                        Product Name is required.
+                                    </div>
+                                    <div *ngIf="proName.errors.minlength">
+                                            Product Name must be at least 3 characters long.
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <label class="col-md-2" for="lblproDesc">Product Description: </label>
+                            <div class="col-md-4">
+                                <input type="text" id="lblproDesc" name="lblproDesc" [(ngModel)]="lblproDesc" value=" {{ProductslistfromJson2.Productdescription}}" required
+                                    minlength="3" #prodDesc="ngModel">
+                                <div *ngIf="prodDesc.invalid && (prodDesc.dirty || prodDesc.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="prodDesc.errors.required">
+                                            Product Description is required.
+                                    </div>
+                                    <div *ngIf="prodDesc.errors.minlength">
+                                        Product Description must be at least 3 characters long.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 2 -->
+                        <div class="form-group row">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2" for="lblman">Manufacturer: </label>
+                            <div class="col-md-3">
+                                <input type="text" id="lblman" name="lblman" [(ngModel)]="lblman" value=" {{ProductslistfromJson2.Manufacturer}}" required minlength="3"
+                                    #manref="ngModel">
+                                <div *ngIf="manref.invalid && (manref.dirty || manref.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="manref.errors.required">
+                                            Manufacturer is required.
+                                    </div>
+                                    <div *ngIf="manref.errors.minlength">
+                                            Manufacturer must be at least 3 characters long.
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="col-md-2" for="lblpriceRef">Price(£): </label>
+                            <div class="col-md-4">
+                                <input type="number" number id="lblpriceRef" name="lblpriceRef" [(ngModel)]="lblpriceRef" value="{{ProductslistfromJson2.Price}}" required
+                                    minlength="1" #priceRef="ngModel">
+                                <div *ngIf="priceRef.invalid && (priceRef.dirty || priceRef.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="priceRef.errors.required">
+                                            Price is required & must be numeric.
+                                    </div>
+                                    <div *ngIf="priceRef.errors.minlength">
+                                            Price must be at least 1 characters long.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 3 -->
+    
+                        <div class="form-group row">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2" for="lblquantity">Quantity: </label>
+                            <div class="col-md-3">
+                                <input type="number" number id="lblquantity" name="lblquantity" [(ngModel)]="lblquantity" required value="{{ProductslistfromJson2.Quantity}}"
+                                    minlength="1" #quantity="ngModel">
+                                <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="alert alert-danger">
+                                    <div *ngIf="quantity.errors.required">
+                                            Quantity is required & must be numeric.
+                                    </div>
+                                    <div *ngIf="quantity.errors.minlength">
+                                            Quantity must be at least 1 characters long.
+                                    </div>
+                                </div>
+                            </div>
+    
+                            
+                        </div>
+    
+    
+                        <div>
+                        </div>
+                        <div class="col-md-3 ml-md-auto">
+                        <button type="submit" class="btn btn-info" (click)=EditProduct() >Save</button>
+                        <button routerLink="" class="btn btn-danger"> <i class="fas fa-backspace"></i>Back</button>
+                    </div>
+                    <div class="col-md-3 ml-md-auto">
+                                  
+                       
+                    </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- (ngSubmit)="onSubmit(formRef.value) -->
+        <!-- style="background-color: rgb(226, 46, 46)" -->

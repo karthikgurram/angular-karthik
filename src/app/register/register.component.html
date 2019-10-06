@@ -1,0 +1,116 @@
+<div class="mx-auto">
+    <div class="container">
+        <div class="form-group">
+            <div class="card border-primary mb-3">
+                <div class="card-header bg-danger text-white"><b>Registration page</b></div>
+                 <div class="card-body">
+                <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && RegisterUser()">
+                    <div class="form-group row" style="margin-top: 25px">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2" for="lblfirstName">First Name: </label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="lblfirstName" name="lblfirstName" [(ngModel)]="lblfirstName" required
+                                 #firstName="ngModel" [ngClass]="{ 'is-invalid': registerForm.submitted && firstName.invalid }" >
+                            <div *ngIf="registerForm.submitted && firstName.invalid"
+                                class="alert-danger invalid-feedback">
+                                <div *ngIf="firstName.errors.required">
+                                    FirstName is required.
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                        <label class="col-md-2" for="lbllastName">Last Name: </label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="lbllastName" name="lbllastName" [(ngModel)]="lbllastName" required
+                                 #lastName="ngModel" [ngClass]="{ 'is-invalid': registerForm.submitted && lastName.invalid }">
+                            <div *ngIf="registerForm.submitted && lastName.invalid"
+                                class="alert-danger invalid-feedback">
+                                <div *ngIf="lastName.errors.required">
+                                    LastName is required.
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row 2 -->
+                    <div class="form-group row">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2" for="empname">Email Id: </label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="emailid" name="emailid" [(ngModel)]="emailid" required 
+                                #nameRef="ngModel" [ngClass]="{ 'is-invalid': registerForm.submitted && nameRef.invalid }" >
+                            <div *ngIf="registerForm.submitted && nameRef.invalid"
+                                class="alert-danger invalid-feedback">
+                                <div *ngIf="nameRef.errors?.required">
+                                    Email id is required.
+                                </div>
+                                <div *ngIf="nameRef.errors?.pattern">
+                                    Email id should be valid.
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <label class="col-md-2" for="lblpassword">Password: </label>
+                        <div class="col-md-4">
+                            <input type="password" class="form-control" id="lblpassword" name="lblpassword" [(ngModel)]="lblpassword" required
+                                 #Password="ngModel" [ngClass]="{ 'is-invalid': registerForm.submitted && Password.invalid}" >
+                            <div *ngIf="registerForm.submitted && Password.invalid"
+                                class="alert-danger invalid-feedback">
+                                <div *ngIf="Password.errors.required">
+                                    Password is required.
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row 3 -->
+
+                    <div class="form-group row">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2" for="lblmobNum">Mobile Number: </label>
+                        <div class="col-md-3">
+                            <input type="number" class="form-control" required  pattern="^[0][1-9]\d{9}$|^[1-9]\d{9}$" id="lblmobNum" name="lblmobNum" [(ngModel)]="lblmobNum"
+                              #mobNum="ngModel" [ngClass]="{ 'is-invalid': registerForm.submitted && mobNum.invalid }">
+                            <div *ngIf="registerForm.submitted && mobNum.invalid" class="alert-danger invalid-feedback">
+                                
+                                <div *ngIf="mobNum.errors.required">
+                                    Mobile Number is required & must be numeric.
+                                </div>
+                                <div *ngIf="mobNum.errors?.pattern">
+                                    Mobile Number must be numeric and only 10 characters long.
+                                </div>
+                                <!-- <div *ngIf="mobNum.errors?.number">
+                                    Mobile Number should be Numeric.
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <label class="col-md-2" for="location">Location: </label>
+                        <div class="col-md-2">
+                            <select class="form-control" name="location" [ngModel]="locations[0]">
+                                <option *ngFor="let location of locations" [value]="location">
+                                    {{location}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div>
+                    </div>
+                    <div class="col-md-3 ml-md-auto">
+                    <button *ngIf="loadRegisterButton"  class="btn btn-info">Register</button>
+                    <button *ngIf="loadSpinnerButton" class="btn btn-info" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Registering User...
+                        </button> <span></span>
+                    <button routerLink="" class="btn btn-danger">Back</button>
+                </div>
+                <br>
+                
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
